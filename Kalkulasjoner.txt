@@ -1,0 +1,86 @@
+•	Studieplasser =
+ CALCULATE(MAX(dim_opptakstudieprogramtermin[tall_budsj_plasser]), ALLEXCEPT(dim_opptakstudieprogramtermin, dim_opptakstudieprogramtermin[arstall], dim_opptakstudieprogramtermin[terminkode], dim_opptakstudieprogramtermin[institusjonsnr_eier], dim_opptakstudieprogramtermin[studietypenr]))
+ 
+ •	Søkere = 
+  DISTINCTCOUNT(fak_soeknadsalternativ[personlopenr])
+  
+ •	1.Prioriterte = 
+       CALCULATE(
+       DISTINCTCOUNT(fak_soeknadsalternativ[personlopenr]),
+       fak_soeknadsalternativ[prioritetsnr] = 1
+       )
+
+•	1.prioritet og fått tilbud = CALCULATE(
+       COUNT(fak_soeknadsalternativ[personlopenr]),
+        FILTER(
+        fak_soeknadsalternativ,
+        fak_soeknadsalternativ[1.Prioriterte] = 1 && fak_soeknadsalternativ[Fått tilbud] =       "J"
+      )
+      )
+
+•	Fått tilbud = 
+        CALCULATE(
+        DISTINCTCOUNT(fak_soeknadsalternativ[personlopenr]),
+        dim_tilbudsstatus[status_gir_tilbud] = "J"
+        )
+
+•	Svart ja = 
+        CALCULATE(
+        DISTINCTCOUNT(fak_soeknadsalternativ[personlopenr]),
+        dim_tilbudsstatus[status_gir_tilbud] = "J",
+        dim_tilbudsvarstatus[svarstatkode] = "J"
+        )
+
+•	Reservert plass = 
+        CALCULATE(
+         DISTINCTCOUNT(fak_soeknadsalternativ[personlopenr]),
+         fak_soeknadsalternativ[mottstatkode] = "R"
+           )
+
+•	Møtt = 
+        CALCULATE(
+        DISTINCTCOUNT(fak_soeknadsalternativ[personlopenr]),
+    dim_mottstatus[mottstatkode] = "J"
+)
+
+
+•	Ikke Møtt = fak_soeknadsalternativ[Svart ja] - fak_soeknadsalternativ[Møtt]
+
+
+•	Søkere (Kvinner) = 
+       CALCULATE(
+         DISTINCTCOUNT(fak_soeknadsalternativ[personlopenr]),
+          dim_person[kjonn] = "K"
+          )
+
+
+•	Søkere (Menn) = 
+          CALCULATE(
+          DISTINCTCOUNT(fak_soeknadsalternativ[personlopenr]),
+          dim_person[kjonn] = "M"
+            )
+
+•	Oppfyllingsgrad = DIVIDE([Møtt], DISTINCTCOUNT(dim_opptakstudieprogramtermin[Studieplasser]))
+
+
+•	Studiekode ( laget som «custom kolonne i Power Query) = 
+Table.AddColumn(fak_soeknadsalternativ1, "Custom", each Text.Combine({Text.From([institusjonsnr], "nb-NO"), " ", Text.PadStart(Text.From([studietypenr], "nb-NO"), 3, "0")}), type text)
+
+
+•	Mest studerte studprogrammer kvinner = 
+     CALCULATE(
+     DISTINCTCOUNT(fak_soeknadsalternativ[personlopenr]),
+     dim_person[kjonn] = "K",
+     dim_mottstatus[mottstatkode] = "J"
+     )
+
+
+•	Mest studerte studprogrammer Menn = 
+     CALCULATE(
+     DISTINCTCOUNT(fak_soeknadsalternativ[personlopenr]),
+     dim_person[kjonn] = "M",
+     dim_mottstatus[mottstatkode] = "J"
+     )
+
+
+•	Ledige studieplasser = CALCULATE(DISTINCTCOUNT(dim_opptakstudieprogramtermin[Studieplasser]) - (fak_soeknadsalternativ[Møtt]))
