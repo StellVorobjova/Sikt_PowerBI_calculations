@@ -1,0 +1,133 @@
+PAGE FORMAT PANE: 
+Canvas settings: Type(16:9), Vertical allignment(top)
+Canvas background: Color (#FFFFFF), Transparency (0%)
+Wallpaper: Color (#FFFFFF), Transparency (0%)
+Filter pane: Text (SEGOE UI) font size (8), Border (#B3B0AD)
+Filter cards: Default, Text (SEGOE UI), font size (9), color (#252423)
+
+sikt icon
+
+BACKGROUND COLOR FOR OVERSKRIFT: 
+Shape (Rectangle), Rounded corners (5 px), 
+Style: Color (#EBE6FE), Transparency (41%), Border (#12239E), Width (1px), Transparency (86%), Text(Dashboard for studieprogramleder ) (SEGOE UI), font size (12), font color (#0F0136), Horizontal allignment (left), Vertical allignment (Middle), Paddind (0 px)
+
+OVERSKRIFTER OVER GRAFER:
+Font (Arial), size (9), Bold, Color (#0F0136), Allignment (Left)
+
+TEXT BOX( OVERSIKT OVER OPPTAKSTALL):
+Shape (Rectangle), Rounded corners ( 0 px)
+Font (SEGOE UI), Font size (10) (B)
+Font color (#0F0136)
+Horizontal allignment (Middle)
+Vertical allignment (Middle)
+Padding (0 px)
+
+LINE( UNDER OVERSKRIFT):
+Shape (line), cap type ( flat)
+Color (#0F0136), Transparency (74%)
+Border (#0F0136), Transparency (0%), width (0.2px)
+
+TEXT BOX (STUDIEPROGRAM & ÅRSTALL):
+Font (Arial), font size (9), color (#0C1660)
+Horizontal allignment (left)
+
+
+FILTERS (STUDIEPROGRAM):
+Slicer settings: style (Dropdown), Single selection
+Values: Font (Arial), Font size ( 8), Color (#0C1660), Padding (4 px)
+General:
+Padding (0 px)
+
+
+FILTERS ( ÅRSTALL):
+Slicer settings: style (Dropdown), Selection (Multi-selection)
+Values: Font (Arial), Font size ( 8), Color (#0C1660), Padding (0 px)
+General:
+Padding (0 px)
+
+SHAPED BOXES UNDER GRAPHS: 
+Shape ( Rounded Rectangle), rounded corners ( 11%)
+style: 
+Fill, color ( #FFFFFF), Transparency (100%)
+Border, color (#E6E6E6), Width (1 px), Transparency (68%)
+Shadow, color (#CCCCCC), Transparency (70%), Blur (20 px), Position (Bottom Right)
+
+
+GRAPH(OVERSIKT OVER SØKERTALL):
+Type (Line and Clustered column chart)
+X-axis: arstall, type (Categorical), Values, Font (SEGOE UI), Size (8), Color (#0C1660), Max area height (25%)
+Y-axis: Søkere, Søkere(Kvinner), 
+  Values: Font (SEGOE UI), Size (8), Color (#0C1660), Display units (None), Value decimals (0), 
+  Legend: Position (Top left), Style (Marker(circle default), Text, Font (SEGOE UI), size (8), color (#605E5C)
+  Column (Søkere): Color (#0C1660)
+  Column (Søkere (Kvinner): Color (#F0A787), Spacing: Inner Spacing (37 px), Minimum category width (23 px)
+
+Data Labels, Apply all settings to, series (All)
+ Options: Orientation (Horizontal), Position (Auto)
+ Values: Font (SEGOE UI), Size (8), Color (#605E5C), Display units (Auto), Value decimals (Auto)
+General, Properties, Padding (20 px)
+
+
+
+GRAPH(FORDELING AV KARAKTER PÅ 1.PRIORITETSØKERE):
+Type(Clustered column chart)
+X-axis: snittkarakter_nvb, type (Continuous)
+  Values:  Font (SEGOE UI), Size (8), Color (#0C1660), Display units (Auto), Value decimals (1)
+Y-axis: 1.prioriterte
+  Values:  Font (SEGOE UI), Size (8), Color (#0C1660), Display units (Auto), Value decimals (Auto)
+Columns (Conditional Formatting), Color (Highest value (#0E1A77), Lowest value (#FFFFFF)
+
+
+ 
+GRAPH(ANTALL STUDIEPLASSER & LEDIGE STUDIEPLASSER):
+ Type(Clustered column chart)
+ X-axis: arstall, type (Continuous)
+  Values: Font (SEGOE UI), Size (8), Color (#0C1660), Display units (Auto), Value decimals (Auto)
+y-axis: Studieplasser, Ledige studieplasser
+   Values: Font (SEGOE UI), Size (8), Color (#0C1660), Display units (Auto), Value decimals (Auto)
+Legend: Position (Top Left), Text: Font (SEGOE UI), size (8), Color (#605E5C)
+Data Labels: Apply to (All),
+ Options: Orientation ( Horizontal), posotion (Auto), Label density( 50%)
+  Values: Font (SEGOE UI), Size (8), Color (#605E5C), Display units (Auto), Value decimals (Auto)
+  
+
+MAP (GOEGRAFISKFORDELING):
+Type (Filled Map)
+Location: fylkesnavn_hjemsted
+Tooltips: Søkere, Fått tilbudt
+Map settings: Style (Road), Controls: (Auto Zoom)
+
+
+GRAPH (OVERSIKT OVER STATISTIKK):
+Type (Clustered column chart)
+X-axis: arstall, type (categorical), 
+ values: Font (SEGOE UI), Size (8), Color (#0C1660), Display units (Auto), Value decimals (Auto)
+Y-axis: 1.prioriterte, Fått tilbudt, Svart ja, Møtt, Ikke Møtt
+  values: Font (SEGOE UI), Size (8), Color (#0C1660), Display units (None), Value decimals (Auto)
+Tooltips: Reservert plass, Oppfyllingsgrad
+Columns:
+   1.prioriterte - Color ( #0C1660)
+   Fått tilbudt -  Color ( #FDAB89)
+   Svart ja     -  Color ( #F0E199)
+   Møtt         -  Color ( #DE6A73)
+   Ikke Møtt    -  Color ( #DF249B)
+Spacing: Inner padding (16 px), Minimum category width (20 px)
+Data Labels: Apply settings to (All),
+  Options: Orientation (Horizontal), Position (auto)
+   values: Font (SEGOE UI), Size (8), Color (#605E5C), Display units (Auto), Value decimals (Auto)
+   
+   
+GRAPH (ALDERS & KJØNNSFORDELING):
+Type (Clustered bar chart)
+Y-axis: alder6navn
+ values: Font (SEGOE UI), Size (8), Color (#0C1660), 
+X-axis: Søkere(Kvinner), Søkere(Menn)
+ values: Font (SEGOE UI), Size (8), Color (#0C1660), Display units (None), Value decimal places (0)
+Bars: Color: 
+       Søkere(Kvinner): (#FDAB89)
+	   Søkere(Menn):    (#0C1660)
+Spacing: Inner padding ( 21 px), Minimum Category width ( 20 px)
+Data Labels: Apply settings to (All),
+    Options: Position( Auto),
+    values: Font (SEGOE UI), Size (8), Color (#605E5C), Display units (Auto), Value decimal places (Auto)	
+ 
