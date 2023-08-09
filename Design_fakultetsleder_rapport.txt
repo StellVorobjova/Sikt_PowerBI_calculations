@@ -96,4 +96,17 @@ Data Labels: Apply settings to (all)
 
 Graph (Kjønns & Aldersfordeling)
 Type (Stacked bar chart)
-
+Y-axis: alder6navn
+   values: values: Font (SEGOE UI), Font size ( 8), Color (#0C1660)
+X-axis: Søkere(Kvinner),
+        Søkere(Menn)
+   values: values: Font (SEGOE UI), Font size ( 8), Color (#0C1660), Display units (None), Value decimal places (0)
+Legends: 
+  Options: Position (Top left), Text: Font (SEGOE UI), Font size ( 8), Color (#0C1660)
+Bars:
+  Søkere(Kvinner): Color (#FDAB89)
+  Søkere(Menn): Color (#0C1660)
+  Spacing: Inner padding (27 px), Minimum category width (20 px)
+Data Labels: Apply settings to (all)
+    Values: Font (SEGOE UI), Font size ( 8), Color (#605E5C), Display units (none)
+		

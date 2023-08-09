@@ -1,6 +1,12 @@
-•	Studieplasser =
- CALCULATE(MAX(dim_opptakstudieprogramtermin[tall_budsj_plasser]), ALLEXCEPT(dim_opptakstudieprogramtermin, dim_opptakstudieprogramtermin[arstall], dim_opptakstudieprogramtermin[terminkode], dim_opptakstudieprogramtermin[institusjonsnr_eier], dim_opptakstudieprogramtermin[studietypenr]))
- 
+•	studieplasser = SUMX(
+    VALUES(fak_soeknadsalternativ[studietypenr]),
+    CALCULATE(
+        MAX(dim_opptakstudieprogramtermin[tall_budsj_plasser]),
+        dim_opptakstudieprogramtermin[tall_budsj_plasser]<> BLANK()
+    )
+)
+
+
  •	Søkere = 
   DISTINCTCOUNT(fak_soeknadsalternativ[personlopenr])
   
